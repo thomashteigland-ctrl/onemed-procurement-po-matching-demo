@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Monaco, monospace;
+  --color-ink: #003d6b;
+  --color-ink-soft: #3a5166;
+  --color-muted: #5c7388;
+  --color-paper: #f4f7f4;
+  --color-paper-2: #e6eee4;
+  --color-surface: #fbfcfb;
+  --color-teal: #7fb124;
+  --color-teal-dark: #004785;
+  --color-teal-mid: #7fb124;
+  --color-teal-light: #e8f2d4;
+  --color-amber: #b45309;
+  --color-amber-light: #fef3c7;
+  --color-rose: #be123c;
+  --color-line: #d0ddc8;
+  --color-slate-pill: #3a5166;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    background-color: #e8f2d4;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    background-color: transparent;
+  }
+}
+
+@keyframes field-in {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-bar {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-row-in {
+  animation: row-in 0.7s ease;
+}
+
+.animate-field-in {
+  animation: field-in 0.28s ease;
+}
+
+@keyframes envelope-fly {
+  0% {
+    transform: translateY(8px) scale(0.96);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-6px) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-envelope {
+  animation: envelope-fly 1.2s ease forwards;
+}
+
+.paper-scan {
+  background-color: #f3ead4;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(40, 30, 10, 0.035) 0px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(ellipse at 18% 8%, rgba(255, 255, 255, 0.45), transparent 52%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.32),
+    inset 0 0 70px rgba(90, 70, 30, 0.07);
+}
+
+.paper-peppol {
+  background-color: #f7faf6;
+  background-image: radial-gradient(ellipse at 18% 8%, rgba(255, 255, 255, 0.7), transparent 52%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.28),
+    inset 0 0 70px rgba(0, 71, 133, 0.04);
+}
